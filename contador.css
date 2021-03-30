@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+}
+body {
+    font-family: 'Roboto Mono',monospace;
+    min-height: 200px;
+    background-color: #000000;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+  
+.container {
+    text-align: center;
+    height: 100vh;
+    color: #ffffff;
+    background: linear-gradient(0, #120c56, #000000);
+}
+
+.container span {
+    font-size: 50px;
+}
+
+.texto {
+    text-align: center;
+    color: #ffffff;
+    margin-top: 100px;
+}
+
+.texto span {
+    font-size: 120px;
+}
+
+.coracao {
+    text-align:center;
+    width: 200px;
+    margin: 100px 0px 0px 0px;
+}
+  
+.coracao span {
+    background-color: #000000;
+    font-size: 30px;
+}

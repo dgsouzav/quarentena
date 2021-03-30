@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <link rel="stylesheet" type="text/css" href="contador.css" media="screen" />
+    <meta charset="UTF-8"/>
+    <title>jully - diogo</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1 class="page-title">
+            <span>Tempo que se conhecem: </span>
+        </h1>   
+            <p class="texto">
+               <span id="days"></span> Dias
+               <span id="hours"></span> Horas
+               <span id="minutes"></span> Minutos 
+               <span id="seconds"></span> Segundos
+            </p>
+            <span> 
+                <img 
+                src ="https://i.pinimg.com/originals/44/93/0e/44930e09e9285e828de6604aa93560b2.gif" 
+                class="coracao" alt="">
+            </span>      
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => { 
+
+        const DATE_TARGET = new Date('08/18/2017 0:01 AM');
+
+        const SPAN_DAYS = document.querySelector('span#days');
+        const SPAN_HOURS = document.querySelector('span#hours');
+        const SPAN_MINUTES = document.querySelector('span#minutes');
+        const SPAN_SECONDS = document.querySelector('span#seconds');
+
+        const MILLISECONDS_OF_A_SECOND = 1000;
+        const MILLISECONDS_OF_A_MINUTE = MILLISECONDS_OF_A_SECOND * 60;
+        const MILLISECONDS_OF_A_HOUR = MILLISECONDS_OF_A_MINUTE * 60;
+        const MILLISECONDS_OF_A_DAY = MILLISECONDS_OF_A_HOUR * 24
+
+        function updateCountdown() {
+            const NOW = new Date()
+            const DURATION = DATE_TARGET - NOW;
+            const REMAINING_DAYS = Math.abs(Math.floor(DURATION / MILLISECONDS_OF_A_DAY));
+            const REMAINING_HOURS = Math.abs(Math.floor((DURATION % MILLISECONDS_OF_A_DAY) / MILLISECONDS_OF_A_HOUR));
+            const REMAINING_MINUTES = Math.abs(Math.floor((DURATION % MILLISECONDS_OF_A_HOUR) / MILLISECONDS_OF_A_MINUTE));
+            const REMAINING_SECONDS = Math.abs(Math.floor((DURATION % MILLISECONDS_OF_A_MINUTE) / MILLISECONDS_OF_A_SECOND));
+
+            SPAN_DAYS.textContent = REMAINING_DAYS;
+            SPAN_HOURS.textContent = REMAINING_HOURS;
+            SPAN_MINUTES.textContent = REMAINING_MINUTES;
+            SPAN_SECONDS.textContent = REMAINING_SECONDS;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
+    });
+    </script>
+  </body>
+</html>
